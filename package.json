@@ -1,0 +1,23 @@
+{
+  "name": "apitest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rom4ig/APItest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rom4ig/APItest/issues"
+  },
+  "homepage": "https://github.com/Rom4ig/APItest#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "jest": "^25.1.0"
+  }
+}
