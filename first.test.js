@@ -1,9 +1,9 @@
 const axios = require('./axios');
 const expect = require('chai').expect;
 const validate = require('./validate');
-const schemaGET = require('./schemaGETunknown.json');
-const schemaPOST = require('./schemaPOSTuser.json');
-const schemaPUT = require('./schemaPUTuser.json');
+const schemaGET = require('./schemas/schemaGETunknown.json');
+const schemaPOST = require('./schemas/schemaPOSTuser.json');
+const schemaPUT = require('./schemas/schemaPUTuser.json');
 let id;
 test('Get test', async () => {
     let res = await axios.get('api/unknown');
