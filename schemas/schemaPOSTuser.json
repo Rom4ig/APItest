@@ -31,9 +31,9 @@
     },
     "createdAt": {
       "$id": "#/properties/createAt",
-      "type": "string",
       "title": "The createAt schema",
-      "pattern": "^(.*)$"
+      "type": "string",
+      "format": "date-time"
     }
   }
 }

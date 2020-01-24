@@ -24,9 +24,9 @@
     },
     "updatedAt" :{
       "$id": "#properies/updatedAt",
-      "type": "string",
       "title": "The updatedAt schema",
-      "pattern": "^(.*)$"
+      "type": "string",
+      "format": "date-time"
     }
   }
 }
