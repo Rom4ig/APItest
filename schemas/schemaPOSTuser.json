@@ -13,7 +13,14 @@
   "properties": {
     "name": {
       "$id": "#/properties/name",
-      "type": "string",
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "maxLength": 5
+        }
+      ],
       "title": "The name schema",
       "pattern": "^(.*)$"
     },

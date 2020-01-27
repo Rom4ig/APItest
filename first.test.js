@@ -8,19 +8,19 @@ const schemaPUT = require('./schemas/schemaPUTuser.json');
 test('Get test', async () => {
     let res = await axios.get('api/unknown');
     console.log('GET');
-    let valid = validate(schemaGET, res);
+    let valid = validate(schemaGET, res.data);
     expect(valid).to.be.true;
 });
 
 test('Post test', async () => {
     let data = {
-        "name": "morpheus",
+        "name": "morph",
         "job": "leader"
     };
     let res = await axios.post('api/users', data);
     console.log('POST');
     console.log(res.data);
-    let valid = validate(schemaPOST, res);
+    let valid = validate(schemaPOST, res.data);
     expect(valid).to.be.true;
 });
 
@@ -32,15 +32,14 @@ test('Put test', async () => {
     let res = await axios.put('api/users/2', data);
     console.log('PUT');
     console.log(res.data);
-    let valid = validate(schemaPUT, res);
+    let valid = validate(schemaPUT, res.data);
     expect(valid).to.be.true;
 });
 
 test('Delete test', async () => {
-
     let res = await axios.delete('api/users/2');
     console.log('DELETE');
-    //console.log(res);
+    console.log(res);
     expect(res.status).to.equal(204);
 });
 
@@ -49,12 +48,18 @@ test('Patch test', async () => {
         "name": "ivan",
         "job": "manager"
     };
-    let res = await axios.put('api/users/2', data);
+    let res = await axios.patch('api/users/2', data);
     console.log('PATCH');
     console.log(res.data);
-    let valid = validate(schemaPUT, res);
+    let valid = validate(schemaPUT, res.data);
     expect(valid).to.be.true;
 });
 
+test('Some json', async () => {
+    let json = require('./some.json');
+    let schema = require('./schema.json')
+    let valid = validate(schema, json);
+    expect(valid).to.be.true;
+});
 
 
