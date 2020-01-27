@@ -1,8 +1,7 @@
 const AJV = require('ajv');
 const ajv = new AJV({
     schemas: [
-        require('./schemas/definitions'),
-        require('./schemas/schema')
+        require('./schemas/definitions')
     ]
 });
 module.exports = function (schema, json) {
