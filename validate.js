@@ -1,5 +1,10 @@
 const AJV = require('ajv');
-const ajv = new AJV();
+const ajv = new AJV({
+    schemas: [
+        require('./schemas/definitions'),
+        require('./schemas/schema')
+    ]
+});
 module.exports = function (schema, json) {
     let validate = ajv.compile(schema);
     let valid = validate(json);

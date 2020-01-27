@@ -57,7 +57,7 @@ test('Patch test', async () => {
 
 test('Some json', async () => {
     let json = require('./some.json');
-    let schema = require('./schema.json')
+    let schema = require('./schemas/schema.json')
     let valid = validate(schema, json);
     expect(valid).to.be.true;
 });
