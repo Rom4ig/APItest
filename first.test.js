@@ -1,16 +1,13 @@
 const axios = require('./axios');
 const expect = require('chai').expect;
 const validate = require('./validate');
-const schemaGET = require('./schemas/schemaGETunknown.json');
-const schemaPOST = require('./schemas/schemaPOSTuser.json');
-const schemaPUT = require('./schemas/schemaPUTuser.json');
 const schemas = require('./schemas');
 
 test('Get test', async () => {
     console.log(schemas);
     let res = await axios.get('api/unknown');
     console.log('GET');
-    let valid = validate(schemaGET, res.data);
+    let valid = validate('./schemas/schemaGETunknown.json', res.data);
     expect(valid).to.be.true;
 });
 
@@ -22,7 +19,7 @@ test('Post test', async () => {
     let res = await axios.post('api/users', data);
     console.log('POST');
     console.log(res.data);
-    let valid = validate(schemaPOST, res.data);
+    let valid = validate('./schemas/schemaPOSTuser.json', res.data);
     expect(valid).to.be.true;
 });
 
@@ -34,7 +31,7 @@ test('Put test', async () => {
     let res = await axios.put('api/users/2', data);
     console.log('PUT');
     console.log(res.data);
-    let valid = validate(schemaPUT, res.data);
+    let valid = validate('./schemas/schemaPUTuser.json', res.data);
     expect(valid).to.be.true;
 });
 
@@ -53,7 +50,7 @@ test('Patch test', async () => {
     let res = await axios.patch('api/users/2', data);
     console.log('PATCH');
     console.log(res.data);
-    let valid = validate(schemaPUT, res.data);
+    let valid = validate('./schemas/schemaPUTuser.json', res.data);
     expect(valid).to.be.true;
 });
 
