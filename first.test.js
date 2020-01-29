@@ -4,8 +4,10 @@ const validate = require('./validate');
 const schemaGET = require('./schemas/schemaGETunknown.json');
 const schemaPOST = require('./schemas/schemaPOSTuser.json');
 const schemaPUT = require('./schemas/schemaPUTuser.json');
+const schemas = require('./schemas');
 
 test('Get test', async () => {
+    console.log(schemas);
     let res = await axios.get('api/unknown');
     console.log('GET');
     let valid = validate(schemaGET, res.data);
@@ -57,8 +59,8 @@ test('Patch test', async () => {
 
 test('Some json', async () => {
     let json = require('./some.json');
-    let schema = require('./schemas/schema.json')
-    let valid = validate(schema, json);
+    //let schema = require('./schemas');
+    let valid = validate('./schemas/schema.json', json);
     expect(valid).to.be.true;
 });
 
