@@ -1,10 +1,8 @@
 const axios = require('./axios');
 const expect = require('chai').expect;
 const validate = require('./validate');
-const schemas = require('./schemas');
 
 test('Get test', async () => {
-    console.log(schemas);
     let res = await axios.get('api/unknown');
     console.log('GET');
     let valid = validate('./schemas/schemaGETunknown.json', res.data);
@@ -56,7 +54,6 @@ test('Patch test', async () => {
 
 test('Some json', async () => {
     let json = require('./some.json');
-    //let schema = require('./schemas');
     let valid = validate('./schemas/schema.json', json);
     expect(valid).to.be.true;
 });

@@ -1,13 +1,13 @@
 const fs = require('fs');
 const AJV = require('ajv');
 const ajv = new AJV();
-function readDir(path) {
-    let array = [];
+function AJVInstance(path) {
     let arraySchemas = fs.readdirSync(path);
-    arraySchemas.forEach((item) => array.push(path + item));
-    return array;
+    arraySchemas.forEach((item) => {
+        item = path + item;
+        ajv.addSchema(require(item), item);
+        console.log('added schema')
+    });
+    return ajv;
 }
-
-let arraySchemas = readDir('./schemas/');
-arraySchemas.forEach((item) => ajv.addSchema(require(item),item));
-module.exports = ajv;
+module.exports = (dir) => AJVInstance(dir);
