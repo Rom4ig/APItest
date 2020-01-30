@@ -5,7 +5,7 @@ const validate = require('./validate');
 test('Get test', async () => {
     let res = await axios.get('api/unknown');
     console.log('GET');
-    let valid = validate('./schemas/schemaGETunknown.json', res.data);
+    let valid = validate('./schemas/test/schemaGETunknown.json', res.data);
     expect(valid).to.be.true;
 });
 
@@ -36,7 +36,7 @@ test('Put test', async () => {
 test('Delete test', async () => {
     let res = await axios.delete('api/users/2');
     console.log('DELETE');
-    console.log(res);
+    console.log(res.statusText);
     expect(res.status).to.equal(204);
 });
 
