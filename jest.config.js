@@ -98,6 +98,9 @@ module.exports = {
 
   // Use this configuration option to add custom reporters to Jest
   //reporters: ["default", "jest-allure"],
+  "reporters": ["default",
+    "jest-junit"
+  ],
 
   // Automatically reset mock state between every test
   // resetMocks: false,
@@ -156,7 +159,7 @@ module.exports = {
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
-
+  //testResultsProcessor: "jest-junit",
   // This option allows use of a custom test runner
   // testRunner: "jasmine2",
 
