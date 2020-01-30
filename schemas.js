@@ -10,8 +10,12 @@ function AJVInstance(path) {
             item = item + '/';
             AJVInstance(item);
         } else {
-            ajv.addSchema(require(item), item);
-            console.log('added schema')
+            if (item.endsWith('.json')) {
+                if (ajv.validateSchema(require(item))) {
+                    ajv.addSchema(require(item), item);
+                    console.log('Added schema')
+                } else console.log(`Wrong schema`)
+            } else console.log(`Skipped ${item} `);
         }
 
     });
