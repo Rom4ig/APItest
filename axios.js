@@ -6,6 +6,6 @@ const instance = axios.create({
     //     rejectUnauthorized: false
     // }),
     // validateStatus: false,
-    baseURL: 'https://reqres.in/',
+   //baseURL: 'https://reqres.in/',
 });
 module.exports = instance;

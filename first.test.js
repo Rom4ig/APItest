@@ -1,6 +1,8 @@
 const axios = require('./axios');
 const expect = require('chai').expect;
 const validate = require('./validate');
+const ApiHandler = require( './api/ApiHandler');
+const accounts = require( './accounts');
 describe('test', () => {
     it('Get test', async () => {
         let res = await axios.get('api/unknown');
@@ -57,6 +59,46 @@ describe('test', () => {
         let valid = validate('./schemas/schema.json', json);
         expect(valid).to.be.true;
     });
+
+    it('GG test', async () => {
+        const axios = require('axios').default;
+        let data = {};
+        let options = {
+            method: 'GET',
+            url: 'https://api-staging-v2.herokuapp.com/v2/retail_items',
+            json: true,
+            headers: {
+                'access-token': '8WAhHxDCP5G3zKGcdmx_UA',
+                client: '1Hle-m_1D2l-s_RdZN6Bxg',
+                uid: 'raman@glossgenius.com'
+            },
+            data: data,
+        };
+        let products = await axios(options);
+        console.log(products.data.data);
+        console.log(typeof (products.data));
+        let name = products.data.data.find(product => product.name === 'eposu');
+        let id = name.id;
+        let optionsDel = {
+            method: 'DELETE',
+            url: `https://api-staging-v2.herokuapp.com/v2/retail_items/${id}`,
+            json: true,
+            headers: {
+                'access-token': '8WAhHxDCP5G3zKGcdmx_UA',
+                client: '1Hle-m_1D2l-s_RdZN6Bxg',
+                uid: 'raman@glossgenius.com'
+            },
+            data: data,
+        };
+        let delet = await axios(optionsDel);
+        products = await axios(options);
+        console.log(products.data.data);
+    });
+    it ('GG some', ()=>
+    {
+        let  apiHandler = new ApiHandler(accounts.specific);
+        apiHandler.deleteProductByName('ebini');
+    })
 });
 
 
