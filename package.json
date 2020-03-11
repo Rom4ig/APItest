@@ -23,7 +23,8 @@
     "https": "^1.0.0",
     "jest": "^25.1.0",
     "jest-allure": "^0.1.1",
-    "jest-junit": "^10.0.0"
+    "jest-junit": "^10.0.0",
+    "log4js": "^6.1.2"
   },
   "devDependencies": {
     "chai": "^4.2.0"
